@@ -1,0 +1,82 @@
+*{
+    margin: 3%;
+    box-sizing: border-box;
+}
+.imgContainer{
+    width: 30%;
+    float: right;
+}
+
+.img{
+    max-width: 100%;
+    aspect-ratio: 1/1;
+    object-fit:cover;
+}
+.img:hover{
+    transition: all 2s ease-in-out;
+    border-radius: 50%;
+}
+
+.outerDiv{
+    border: 3px solid #4CAF50;
+    overflow:auto;
+    padding: 2%;
+}
+
+.flex-container{
+                                /* The flex container properties are:
+                                flex-direction
+                                flex-wrap
+                                flex-flow
+                                justify-content
+                                align-items
+                                align-content */
+    margin: 0;
+    padding: 0;
+    background-color: green;
+    display: flex;
+    flex-direction:row;
+    /* flex-wrap: wrap; */
+    /*flex-flow: row wrap; it can be used instead of flex direction and wrap*/
+    justify-content: space-around; 
+
+    /* yeh neechay walay dono kind of same hi hain bas x,y axis ka farq hai */
+    align-items: center;
+    align-content:center;
+
+    /* height: 900px; use when you have to see effects of align-content/items */
+}
+
+.flex-container > div{
+                                /* The flex item properties are:
+                                order (I dont get this)
+                                flex-grow
+                                flex-shrink
+                                flex-basis (sets the initial length of a flex item)
+                                flex
+                                align-self */
+
+    /* margin: 1px; use when align-items/content is stretch */
+
+    background-color: yellow;
+    color: black;
+    margin: 10px;
+    width: 100px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 20px;
+}
+
+/* Take 4 divs example and flex unwrap and PADDING ZERO */
+
+.div2{
+    flex-grow: 8;
+    /* align-self: center; This will work if you go to flex-container, give it some height like 600px and set align-items to for example flex-start. All items will be from flex-start but div2 will be center  */
+}
+
+.div4{
+    flex-shrink: 0;
+}
+
+
+

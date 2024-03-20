@@ -1,0 +1,241 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    background-color: bisque;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 5em;
+    background-color: rgb(95, 63, 24)
+}
+
+.left{
+    color: white;
+    font-size: 2em;
+}
+
+nav ul{
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 0 1em;
+}
+
+nav ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover{
+    color: bisque;
+}
+
+.firstSection{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 4em;
+}
+
+.skills{
+    margin-top: 2.5em;
+}
+.skills h1{
+    font-size: 1.5em;
+    color: rgb(95, 63, 24);
+    margin-bottom: 0.5em;
+}
+
+li{
+    color: rgb(95, 63, 24);
+}
+
+li span{
+    color: black;
+}
+
+.Projects h1{
+    font-size: 1.5em;
+    color: rgb(95, 63, 24);
+    margin-bottom: 0.5em;
+}
+
+.image img{
+    margin-top: 2.5em;
+    width: 18em;
+    height: 22em;
+}
+
+.underFirstSectionHR{
+    border-color: rgb(95, 63, 24);
+    margin: 30px 50px
+}
+
+.secondSection{
+    margin-top: 3em;
+    margin-left: 3em;  
+}
+
+.myEducation{
+    margin-top: 0.5em;
+    color: rgb(95, 63, 24)
+}
+
+.education{
+    color: rgb(95, 63, 24);
+    margin-bottom: 1em;
+}
+
+.secondSection .outerDiv {
+    background: rgb(95, 63, 24);
+    width: 60em;
+    height: 0.1em;
+    margin: 4em;
+    display: flex;
+    justify-content: space-around;
+  }
+
+.vertical{
+    height: 4em;
+    width: 0.025em;
+    background-color: rgb(95, 63, 24);
+    margin: 0 100px;
+}
+
+.vertical img{
+    position: relative;
+    width: 2em;
+    top: -2em;
+    left: -0.95em;
+    mix-blend-mode:darken;
+}
+
+.verticalTitle {
+    position: relative;
+    top: 2.5em;
+    font-weight: 500;
+    width: 150px;
+    color: black;
+  }
+
+  .verticalDescription {
+    position: relative;
+    top: 5em;
+    width: 190px;
+    font-size: 9px;
+    color: black;
+  }
+.underSecondSectionHR{
+    margin-top: 30em;
+    color: bisque;
+}
+
+.schoolName, .collegeName, .UniName, .cgpa{
+    font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+    *{
+        margin: 2%;
+    }
+    nav{
+        margin: 0;
+        height: 80px;
+        width: 100%;
+    }
+
+    .left{
+        font-size: 1em;
+    }
+    .right{
+        font-size: 0.75em;
+    }
+
+    nav ul{
+        margin: 0;
+    }
+
+    #contact{
+        margin: 0;
+    }
+
+    .firstSection{
+        margin-bottom: 2em;
+        display: block;
+    }
+
+    .skills h1{
+        font-size: 1.25em;
+        margin-bottom: 2.5%;
+        margin-top: 5%;
+    }
+
+    .Projects{
+        margin-top: 3%;
+    }
+    .Projects h1{
+        font-size: 1.25em;
+        margin-bottom: 2.5%;
+        margin-top: 5%;
+    }
+
+    .image{
+        display: flex;
+        justify-content: center;
+    }
+
+    .underFirstSectionHR{
+        margin: 10% 5%;
+    }
+    .secondSection{
+        margin: 3%;
+    }
+
+    .secondSection .outerDiv{
+        width: 0.5%;
+        height: 50%;
+        margin: 3%;
+        margin-left: 2em;
+        display: flex;
+        flex-direction: column;
+    } 
+    /* right uptil here*/
+
+    .vertical{
+        width: 4em;
+        height: 0.025em;
+        margin: 80px 0;
+    }
+
+    .vertical img{
+        position:relative;
+        width: 50%;
+        left: -50%;
+        top: -15px;
+        margin-left: 1%;
+    }
+
+    .verticalTitle{
+        position: relative;
+        margin: 0 120%;
+        top: -50px;
+    }
+
+    .verticalDescription{
+        position: relative;
+        margin: 0 120%;
+        top: -50px;
+    }
+
+}
