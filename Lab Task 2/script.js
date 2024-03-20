@@ -72,7 +72,6 @@ $("#storiesList").on("click", "#editBtn", function(event){
       // $("#clearBtn").show();
       $("#createBtn").html("Update");
       $("#createBtn").attr("data-id", response.id);
-      console.log(response);
     },
     error: function(){
       console.error("Error occured: ", error);
@@ -82,35 +81,31 @@ $("#storiesList").on("click", "#editBtn", function(event){
 
 // EDIT (PART 2)
 $("#createBtn").on("click", function(event){
+  event.preventDefault();
   let id = $("#createBtn").attr("data-id");
   var title = $("#createTitle").val();
   var content = $("#createContent").val();
 
-  $.ajax({
-    url: "https://usmanlive.com/wp-json/api/stories/" + id,
-    method: "PUT",
-    datatype: "json", 
-    data: {title, content},
-    success: function(){
-      $("#createBtn").html("Create");
-      loadingStories();
-    },
+  if(id){
+    $.ajax({
+      url: "https://usmanlive.com/wp-json/api/stories/" + id,
+      method: "PUT",
+      datatype: "json", 
+      data: {title, content},
+      success: function(){
+        $("#createBtn").html("Create");
+        loadingStories();
+      },
+  
+      error: function(){
+        console.log("Error occured: " , error);
+      }
+    })
+  }
 
-    error: function(){
-      console.log("Error occured: " , error);
-    }
-  })
-})
-
-
-// POST
-$("#createBtn").on("click", function(event){
-  event.preventDefault();
-  var title = $("#createTitle").val();
-  var content = $("#createContent").val();
-  console.log(title, content);
-
-  $.ajax({
+  // POST
+  else{
+    $.ajax({
       url: 'https://usmanlive.com/wp-json/api/stories',
       method: "POST",
       datatype: "json",
@@ -122,5 +117,16 @@ $("#createBtn").on("click", function(event){
           console.error("Error occured: ", error);
       },
   });
+  }
 })
+
+
+// // POST
+// $("#createBtn").on("click", function(event){
+//   event.preventDefault();
+//   var title = $("#createTitle").val();
+//   var content = $("#createContent").val();
+
+ 
+// })
 
