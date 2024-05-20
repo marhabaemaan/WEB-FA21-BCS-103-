@@ -20,7 +20,27 @@ server.use(expressSession({ secret: "My Secret Key" }));
 server.use(express.static("public"));
 server.use(mainSiteMiddleware);
 
+let bagsAPIRouter = require("./routes/api/bags");
+const {cookie} = require("express/lib/response");
+server.use(bagsAPIRouter);
 
+server.get("/cart", checkAuth, async (req, res) => {
+  let cart = req.cookies.cart;
+  if (!cart) cart = [];
+  let bags = await Bag.find({ _id: { $in: cart } });
+  res.render("cart", { bags });
+});
+
+server.use("/bags", require("./routes/bags"));
+server.use("/", require("./routes/auth"));
+
+server.get("/login", function (req, res) {
+  res.render("auth/login");  // specify the folder 'auth'
+});
+
+server.get("/register", function (req, res) {
+  res.render("auth/register");  // specify the folder 'auth'
+});
 
 
 server.get("/", function (req, res) {
