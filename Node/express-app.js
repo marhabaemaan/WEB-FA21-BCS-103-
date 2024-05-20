@@ -1,30 +1,70 @@
 const express = require("express");
-let server = express();
-// instance of express that consists of different methods like use and get as shown below
+const mongoose = require("mongoose");
+const server = express();
+
+let Bag = require("./models/bagModel");
+server.use(express.json());
+server.set("view engine", "ejs");
+server.use(express.urlencoded());
+
+let cookieParser = require("cookie-parser");
+let expressSession = require("express-session");
+let ejsLayouts = require("express-ejs-layouts");
+
+let mainSiteMiddleware = require("./middlewares/main-site");
+let checkAuth = require("./middlewares/check-auth");
+server.use(ejsLayouts);
+server.use(cookieParser());
+server.use(expressSession({ secret: "My Secret Key" }));
 
 server.use(express.static("public"));
-server.set("view engine", "ejs");
-//above line sets ejs as view engine
+server.use(mainSiteMiddleware);
 
-server.get("/api/stories", function (request, response) {
-  response.send([
-    { title: "Story 1", content: "story 1 content" },
-    { title: "story 2", content: "story 2 content" },
-  ]);
+
+
+
+server.get("/", function (req, res) {
+  res.render("homepage");
 });
+
+
+
+server.get("/ladies-wallet", function(request, response){
+    response.render("ladies-wallet");
+})
+server.get("/mens-wallet", function(request, response){
+    response.render("mens-wallet");
+})
+server.get("/ladies-bag", function(request, response){
+    response.render("ladies-bag");
+})
+server.get("/mens-bag", function(request, response){
+    response.render("mens-bag");
+})
+
+
+//run localhost:4000
+server.listen(4000);
+
+mongoose
+  .connect("mongodb+srv://marhabaemaan:samsungS3@project0.f2rpwt8.mongodb.net/")
+  .then(() => {
+    console.log("DB Connected");
+  })
+  .catch((err) => {
+    console.log("Unable to connect");
+  });
+
+
+
+
+// server.get("/api/stories", function (request, response){
+//   response.send([
+//     { title: "Story 1", content: "story 1 content" },
+//     { title: "story 2", content: "story 2 content" },
+//   ]);
+// });
 // run localhost:4000/api/stories in browser
 // before performing above step run nodemon express-app.js in the terminal below
 // the above snippet is sending the same json that we catched using ajax in crud. 
 // now this is the server side's pov how the json was sent.
-
-server.get("/contact-us", function(request, response){
-    response.render("contact-us");
-})
-// this line indicates that when localhost:4000/contact-us is typed in url, show this page. if only localhost:4000 is typed then it will show the main screen having a link of /contact-us page and upon clicking that link our url will change to localhost:4000/contact-us
-
-server.get("/", function(request, response){
-    response.render("homepage");
-})
-
-//run localhost:4000
-server.listen(4000);
