@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% bags.forEach(bag => { %>
+                <tr>
+                    <td><%= bag.name %></td>
+                    <td><%= bag.price %></td>
+                    <td><%= bag.category %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">Total</td>
+                <td>
+                    <% 
+                        let totalAmount = bags.reduce((sum, bag) => sum + bag.price, 0);
+                        %>
+                    <%= totalAmount %>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

@@ -1,65 +1,58 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-html {
+  }
+  
+  html {
     scroll-behavior: smooth;
-}
-
-.topDivHeading{
+  }
+  
+  .topDivHeading {
     font-size: 80%;
-}
-
-.navBar{
+  }
+  
+  .navBar {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    background-color: rgb(240,240,240);
-
-}
-
-.topNavDiv{
+    background-color: rgb(240, 240, 240);
+  }
+  
+  .topNavDiv {
     display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 0.5%;
-}
-
-.topNavDiv h1{
+  }
+  
+  .topNavDiv h1 {
     font-size: xx-large;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.bottomNavDiv{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  .bottomNavDiv {
     margin-left: 4%;
     margin-right: 4%;
-}
-
-nav ul{
+  }
+  
+  nav ul {
     display: flex;
     justify-content: space-around;
-}
-
-nav ul li {
+    align-items: center;
+    flex-wrap: wrap; /* Ensures wrapping in smaller screens */
+  }
+  
+  nav ul li {
     list-style: none;
     margin: 0 1em;
-}
-
-
-nav ul li a:hover {
-    background-position: 0;
-}
-
-a:hover::before {
-    width: 100%;
-}
-
-nav ul li a {
+  }
+  
+  nav ul li a {
     background-image: linear-gradient(
       to right,
       rgb(168, 156, 156),
-      rgb(123, 114, 114)50%,
+      rgb(123, 114, 114) 50%,
       #000 50%
     );
     background-size: 200% 100%;
@@ -68,54 +61,54 @@ nav ul li a {
     -webkit-text-fill-color: transparent;
     transition: all 0.4s ease-in-out;
   }
-
-nav ul li span{
+  
+  nav ul li span {
     font-size: 100%;
-
-}
-
-.HRDiv{
+  }
+  
+  .HRDiv {
     display: flex;
     justify-content: center;
-}
-.HR{
+  }
+  
+  .HR {
     margin-top: 1%;
     width: 90%;
     margin: 0;
-}
-.list-unstyled li {
+  }
+  
+  .list-unstyled li {
     padding: 0.5rem 0;
-}
-
-.contactUsDiv{
-    background-color: rgb(240,240,240);
+  }
+  
+  .contactUsDiv {
+    background-color: rgb(240, 240, 240);
     width: 100%;
     height: 20vw;
-}
-
-.contactUsDiv h1{
+  }
+  
+  .contactUsDiv h1 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 100%;
-}
-
-@media (max-width: 576px) {
+  }
+  
+  @media (max-width: 576px) {
     .navBar h1 {
-        font-size: 18px;
+      font-size: 18px;
     }
-    .bottomNavDiv li{
-        font-size: 12px;
-        padding-top: 0;
+    .bottomNavDiv li {
+      font-size: 12px;
+      padding-top: 0;
     }
-    #carouselDiv{
-        margin-bottom: 30px;
+    #carouselDiv {
+      margin-bottom: 30px;
     }
-    .contactUsDiv{
-        margin-top: 30px;
+    .contactUsDiv {
+      margin-top: 30px;
     }
-    #contactUsA{
-        font-size: 14px;
-        padding: 3px;
+    #contactUsA {
+      font-size: 14px;
+      padding: 3px;
     }
   }
-
-
+  

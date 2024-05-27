@@ -9,11 +9,9 @@
     <!-- Bags Section -->
     <section class="bags container">
         <h1 class="mt-3">Ladies bags</h1>
-      <!-- First Row -->
-      <%- include('./partials/bags-display') %>
-      <!-- Repeat the structure for additional rows -->
-      <%- include('./partials/bags-display') %>
-      <%- include('./partials/bags-display') %>
-  </section>
+        <% bags.forEach(bag => { %>
+            <%- include('./partials/bags-display', { bag: bag }) %>
+        <% }); %>
+    </section>
 </body>
 </html>
