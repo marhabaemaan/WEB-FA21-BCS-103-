@@ -4,17 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
 </head>
 <body>
-      <!-- Bags Section -->
-      <section class="bags container">
-        <h1 class="mt-3">Ladies Wallet</h1>
-
+    <!-- Bags Section -->
+    <section class="bags container">
+        <h1 class="mt-3">Featured bags</h1>
         <% bags.forEach(bag => { %>
             <%- include('./partials/bags-display', { bag: bag }) %>
         <% }); %>
-        
     </section>
 </body>
 </html>

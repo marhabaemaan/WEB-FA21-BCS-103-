@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const bagSchema = mongoose.Schema({
     name: String,
     price: Number,
-    category: String // Add a 'category' field to distinguish between different categories of bags
+    category: String, // Add a 'category' field to distinguish between different categories of bags
+    isFeatured: Boolean,
 });
 
 const Bag = mongoose.model('Bag', bagSchema);

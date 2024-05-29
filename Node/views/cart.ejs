@@ -4,6 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tfoot {
+            font-weight: bold;
+        }
+
+        .total {
+            text-align: right;
+        }
+    </style>
 </head>
 <body>
     <table>
@@ -12,26 +40,36 @@
                 <th>Name</th>
                 <th>Price</th>
                 <th>Category</th>
+                <th>Quantity</th>
             </tr>
         </thead>
         <tbody>
-            <% bags.forEach(bag => { %>
+            <% 
+            let totalAmount = 0;
+            let totalItems = 0;
+            bags.forEach(bag => {
+                // Find corresponding product in cart
+                const cartItem = cart.find(item => item.id === bag.id);
+                if (cartItem) {
+                    totalAmount += bag.price * cartItem.quantity;
+                    totalItems += cartItem.quantity;
+            %>
                 <tr>
                     <td><%= bag.name %></td>
                     <td><%= bag.price %></td>
                     <td><%= bag.category %></td>
+                    <td><%= cartItem.quantity %></td>
                 </tr>
-            <% }) %>
+            <% }}); %>
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="2">Total</td>
-                <td>
-                    <% 
-                        let totalAmount = bags.reduce((sum, bag) => sum + bag.price, 0);
-                        %>
-                    <%= totalAmount %>
-                </td>
+                <td colspan="3">Total Items</td>
+                <td><%= totalItems %></td>
+            </tr>
+            <tr>
+                <td colspan="3">Total Amount</td>
+                <td><%= totalAmount.toFixed(2) %></td>
             </tr>
         </tfoot>
     </table>

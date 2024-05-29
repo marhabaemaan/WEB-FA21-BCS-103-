@@ -2,6 +2,7 @@ let express = require("express");
 let router = express.Router();
 let Bag = require("../models/bagModel");
 
+
 router.get("/new", (req, res) => {
   res.render("bags/new");
 });
@@ -23,7 +24,8 @@ router.get("/add-to-cart/:id", async (req, res) => {
   let cart = req.cookies.cart;
   if (!cart) cart = [];
   cart.push(req.params.id);
-  res.cookie("cart", cart);
+  res.cookie("cart", cart, { path: "/" });
+  // res.cookie("cart", cart);
 
   // return res.send(req.cookies);
   return res.redirect("/bags");
@@ -42,24 +44,24 @@ router.post("/edit/:id", async (req, res) => {
   return res.redirect("/bags");
 });
 
-router.get("/:page?", async (req, res) => {
-  let pageTitle = "List of All bags";
+// router.get("/:page?", async (req, res) => {
+//   let pageTitle = "List of All bags";
 
-  let page = req.params.page ? req.params.page : 1;
-  let pageSize = 3;
-  let skip = (page - 1) * pageSize;
-  let total = await Student.countDocuments();
-  let totalPages = Math.ceil(total / pageSize);
-  let bags = await Bag.find().limit(pageSize).skip(skip);
-  //   return res.send(students);
-  return res.render("bags/list", {
-    pageTitle,
-    bags,
-    page,
-    pageSize,
-    total,
-    totalPages,
-  });
-});
+//   let page = req.params.page ? req.params.page : 1;
+//   let pageSize = 3;
+//   let skip = (page - 1) * pageSize;
+//   // let total = await Student.countDocuments();
+//   let totalPages = Math.ceil(total / pageSize);
+//   let bags = await Bag.find().limit(pageSize).skip(skip);
+//   //   return res.send(students);
+//   return res.render("bags/list", {
+//     pageTitle,
+//     bags,
+//     page,
+//     pageSize,
+//     total,
+//     totalPages,
+//   });
+// });
 
 module.exports = router;

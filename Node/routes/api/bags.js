@@ -10,6 +10,17 @@ router.post("/api/bags", async function(req, res){
     res.send(bag);
 });
 
+// router.get("/mens-wallet", async (req, res) => {
+//       try {
+//         let mensWallets = await Bag.find({ category: "mens-wallet" });
+//         console.log(mensWallets);
+//         res.render("mens-wallet", { bags: mensWallets });
+//       } catch (error) {
+//         console.error("Error fetching men's wallets:", error);
+//         res.status(500).send("Internal Server Error");
+//       }
+//     });
+
 router.delete("/api/bags/:id", async function(req, res){
     let bag = await Bag.findByIdAndDelete(req.params.id);
     if(!bag) return res.status(404).send("record not found");
