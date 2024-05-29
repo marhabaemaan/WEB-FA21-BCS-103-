@@ -1,0 +1,20 @@
+
+
+<!-- mens-bags.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add your head content here -->
+</head>
+<body>
+    <!-- Navbar and other layout elements -->
+    
+    <section class="bags container">
+        <h1 class="mt-3">Men's bags</h1>
+        <!-- Render bags dynamically -->
+        <% bags.forEach(bag => { %>
+            <%- include('./partials/bags-display', { bag: bag }) %>
+        <% }); %>
+    </section>
+</body>
+</html>

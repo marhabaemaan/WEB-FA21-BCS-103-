@@ -1,0 +1,30 @@
+<h1><%= pageTitle %></h1>
+<% console.log("Inside List.ejs File") %>
+<a href="/bags/new">Add New Bag</a>
+<% for( let index = 1; index <= totalPages; index++ ) { %>
+    <li><a href="/bags/<%= index %>"><%= index %></a></li>
+<% } %>
+<table style="width: 100%;" border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>price</th>
+            <th>category</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for( let index = 0; index < bags.length; index++ ) { %>
+            <tr>
+                <td><%= bags[index].Name %></td>
+                <td><%= bags[index].price %></td>
+                <td><%= bags[index].category %></td>
+                <td>
+                        <a href="/bags/add-to-cart/<%= bags[index].Name %>">Add to Cart</a>
+                        <a href="/bags/delete/<%= bags[index].Name %>">Del</a>
+                        <a href="/bags/edit/<%= bags[index].Name %>">Edit</a>
+                </td>
+                
+            </tr>
+        <% } %>
+    </tbody>
+</table>

@@ -1,0 +1,11 @@
+<div class="visited-products">
+    <h1>Visited Products</h1>
+    <ul>
+        <% visitedBags.forEach(bag => { %>
+            <li>
+                <a href="/bags/<%= bag._id %>"><%= bag.name %></a>
+                - $<%= bag.price %>
+            </li>
+        <% }) %>
+    </ul>
+    </div>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
+        <button id="featureButton" style="padding-top: 10px; padding-bottom: 10px;">Feature button</button>
+    </div>
+    <div id="carouselDiv" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselDiv" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#carouselDiv" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carouselDiv" data-bs-slide-to="2"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="assets/bag2.jpg" alt="image not found" class="d-block" style="width: 100%;">
+            </div>
+            <div class="carousel-item">
+                <img src="assets/bag3.webp" alt="image not found" class="d-block" style="width: 100%;">
+            </div>
+            <div class="carousel-item">
+                <img src="assets/bag4.jpg" alt="image not found" class="d-block" width="100%;">
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselDiv" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselDiv" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    <script>
+        document.getElementById('featureButton').addEventListener('click', function() {
+            window.location.href = '/bag-feature';
+        });
+    </script>
+</body>
+</html>
